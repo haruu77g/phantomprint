@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "phantomprint"
+version = "0.1.0"
+description = "Passive Hybrid Fingerprinting Engine — identify hosts without sending a single packet"
+readme = "README.md"
+license = { text = "GPL-3.0" }
+requires-python = ">=3.11"
+dependencies = [
+    "scapy>=2.5.0",
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "pyyaml>=6.0",
+    "stix2>=3.0.0",
+]
+
+[project.scripts]
+phantomprint = "phantomprint.cli:app"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
